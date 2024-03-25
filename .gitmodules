@@ -1,0 +1,3 @@
+[submodule "Kompas"]
+	path = Kompas
+	url = https://github.com/zzirnheld/Kompas.git
