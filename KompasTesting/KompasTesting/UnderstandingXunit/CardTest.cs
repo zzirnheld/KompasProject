@@ -4,8 +4,10 @@ using Kompas.Cards.Loading;
 using Kompas.Cards.Models;
 using Kompas.Effects.Models;
 using Kompas.Gamestate;
+using Kompas.Gamestate.Locations;
 using Kompas.Gamestate.Locations.Models;
 using Kompas.Gamestate.Players;
+using Kompas.Networking;
 using Kompas.Server.Cards.Models;
 using Kompas.Server.Effects.Controllers;
 using Kompas.Server.Effects.Models;
@@ -39,13 +41,19 @@ public class CardTest
             .Returns(string.Empty);
     }
 
-    private (ServerGameCard, Mock<IPlayer>) CreateServerCard(string cardName, string effText, int id, string cardFileName)
+    private (ServerGameCard, IPlayer) CreateServerCard(string cardName, string effText, int id, string cardFileName)
     {
         var player = new Mock<IPlayer>();
         player.SetupGet(player => player.Game)
             .Returns(game.Object);
 
-        return (CreateServerCard(cardName, effText, id, cardFileName, player.Object), player);
+        var networker = new Mock<INetworker>();
+        player.SetupGet(p => p.Networker)
+            .Returns(networker.Object);
+        player.SetupGet(p => p.Enemy)
+            .Returns(player.Object); //Note: must do setups in the same function as creates the mock.
+
+        return (CreateServerCard(cardName, effText, id, cardFileName, player.Object), player.Object);
     }
 
     private ServerGameCard CreateServerCard(string cardName, string effText, int id, string cardFileName, IPlayer player)
@@ -96,6 +104,7 @@ public class CardTest
     {
         var (card, _) = CreateServerCard(CardName, EffText, CardID, CardFileName);
 
+        //Required for stashing adjacent cards
         var board = new Mock<IBoard>();
         game.SetupGet(game => game.Board)
             .Returns(board.Object);
@@ -106,14 +115,45 @@ public class CardTest
 
         card.Remove();
 
-        stack.Verify(s =>
-            s.TriggerForCondition(Trigger.Remove, It.Is<TriggeringEventContext>(ctxt => IsCorrectRemoveContext(ctxt, card))));
+        stack.Verify(s
+            => s.TriggerForCondition(Trigger.Remove, It.Is<TriggeringEventContext>(ctxt
+                => IsCorrectRemoveContext(ctxt, card, Location.Nowhere))));
     }
 
-    private static bool IsCorrectRemoveContext(TriggeringEventContext ctxt, GameCard mainCard)
+    [Fact]
+    public void ServerCard_Remove_FromILocationModel_FinishesWithoutError()
+    {
+        var (card, player) = CreateServerCard(CardName, EffText, CardID, CardFileName);
+
+        var locationModel = new Mock<ILocationModel>();
+        locationModel.SetupGet(l => l.Location)
+            .Returns(Location.Annihilation);
+        card.LocationModel = locationModel.Object;
+
+        //Required for stashing adjacent cards
+        var board = new Mock<IBoard>();
+        game.SetupGet(game => game.Board)
+            .Returns(board.Object);
+
+        var stack = new Mock<IServerStackController>();
+        game.SetupGet(g => g.StackController)
+            .Returns(stack.Object);
+
+        card.Remove();
+
+        stack.Verify(s
+            => s.TriggerForCondition(Trigger.Remove, It.Is<TriggeringEventContext>(ctxt
+                => IsCorrectRemoveContext(ctxt, card, locationModel.Object.Location))));
+
+        locationModel.Verify(l
+            => l.Remove(It.Is<GameCard>(c => c == card)));
+    }
+
+    private static bool IsCorrectRemoveContext(TriggeringEventContext ctxt, GameCard mainCard, Location locationBefore)
     {
         Assert.NotNull(ctxt.MainCardInfoBefore);
         Assert.Equal(mainCard, ctxt.MainCardInfoBefore.Card);
+        Assert.Equal(locationBefore, ctxt.MainCardInfoBefore.Location);
         
         Assert.NotNull(ctxt.MainCardInfoAfter);
         Assert.Equal(mainCard, ctxt.MainCardInfoAfter.Card);
