@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/eimti/Documents/KompasTesting/KompasTesting/KompasTesting.csproj": {}
+    "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/KompasTesting.csproj": {}
   },
   "projects": {
-    "/home/eimti/Documents/Kompas/Kompas.csproj": {
+    "/home/eimti/Documents/Kompas/KompasProject/Kompas/Kompas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/eimti/Documents/Kompas/Kompas.csproj",
+        "projectUniqueName": "/home/eimti/Documents/Kompas/KompasProject/Kompas/Kompas.csproj",
         "projectName": "Kompas",
-        "projectPath": "/home/eimti/Documents/Kompas/Kompas.csproj",
+        "projectPath": "/home/eimti/Documents/Kompas/KompasProject/Kompas/Kompas.csproj",
         "packagesPath": "/home/eimti/.nuget/packages/",
-        "outputPath": "/home/eimti/Documents/Kompas/.godot/mono/temp/obj/",
+        "outputPath": "/home/eimti/Documents/Kompas/KompasProject/Kompas/.godot/mono/temp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/eimti/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net6.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
@@ -66,23 +66,33 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/eimti/Documents/KompasTesting/KompasTesting/KompasTesting.csproj": {
+    "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/KompasTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/eimti/Documents/KompasTesting/KompasTesting/KompasTesting.csproj",
+        "projectUniqueName": "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/KompasTesting.csproj",
         "projectName": "KompasTesting",
-        "projectPath": "/home/eimti/Documents/KompasTesting/KompasTesting/KompasTesting.csproj",
+        "projectPath": "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/KompasTesting.csproj",
         "packagesPath": "/home/eimti/.nuget/packages/",
-        "outputPath": "/home/eimti/Documents/KompasTesting/KompasTesting/obj/",
+        "outputPath": "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/eimti/.nuget/NuGet/NuGet.Config"
@@ -97,8 +107,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/eimti/Documents/Kompas/Kompas.csproj": {
-                "projectPath": "/home/eimti/Documents/Kompas/Kompas.csproj"
+              "/home/eimti/Documents/Kompas/KompasProject/Kompas/Kompas.csproj": {
+                "projectPath": "/home/eimti/Documents/Kompas/KompasProject/Kompas/Kompas.csproj"
               }
             }
           }
@@ -116,6 +126,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.6.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
