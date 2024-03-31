@@ -8,6 +8,7 @@ using Kompas.Gamestate.Locations;
 using Kompas.Gamestate.Locations.Models;
 using Kompas.Gamestate.Players;
 using Kompas.Networking;
+using Kompas.Server.Cards.Loading;
 using Kompas.Server.Cards.Models;
 using Kompas.Server.Effects.Controllers;
 using Kompas.Server.Effects.Models;
