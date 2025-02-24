@@ -7,10 +7,9 @@ using Kompas.Gamestate.Locations;
 using Kompas.Gamestate.Locations.Models;
 using Kompas.Server.Effects.Controllers;
 using Kompas.Server.Gamestate;
-using Kompas.Test.Card;
 using Moq;
 
-namespace Kompas.Test;
+namespace Kompas.Test.Unit.Card;
 
 public class CardRemoveTest
 {

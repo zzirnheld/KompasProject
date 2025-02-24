@@ -1,14 +1,12 @@
 using Godot;
-using Kompas;
 using Kompas.Cards.Loading;
-using Kompas.Gamestate;
 using Kompas.Gamestate.Players;
 using Kompas.Server.Cards.Loading;
 using Kompas.Server.Effects.Controllers;
 using Kompas.Server.Gamestate;
 using Moq;
 
-namespace Kompas.Test;
+namespace Kompas.Test.Unit.Card;
 
 public class CardRepoTest
 {

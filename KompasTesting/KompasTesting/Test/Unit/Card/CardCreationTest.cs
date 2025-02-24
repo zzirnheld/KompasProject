@@ -1,9 +1,8 @@
 using Kompas.Cards.Loading;
 using Kompas.Server.Gamestate;
-using Kompas.Test.Card;
 using Moq;
 
-namespace Kompas.Test;
+namespace Kompas.Test.Unit.Card;
 
 public class CardCreationTest
 {

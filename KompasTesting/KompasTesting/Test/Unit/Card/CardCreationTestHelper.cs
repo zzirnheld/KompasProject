@@ -8,7 +8,7 @@ using Kompas.Server.Effects.Models;
 using Kompas.Server.Gamestate;
 using Moq;
 
-namespace Kompas.Test.Card;
+namespace Kompas.Test.Unit.Card;
 
 public static class CardCreationTestHelper {
 
