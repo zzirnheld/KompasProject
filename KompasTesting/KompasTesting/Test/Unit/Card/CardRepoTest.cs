@@ -10,23 +10,23 @@ namespace Kompas.Test.Unit.Card;
 
 public class CardRepoTest
 {
-	public CardRepoTest()
-	{
+    public CardRepoTest()
+    {
         var logger = new Mock<IKompasLogger>();
         Logger.Singleton.KompasLogger = logger.Object;
-	}
+    }
 
-    private class FileLoader : CardRepository.IFileLoader
+    private class FileLoader : IFileLoader
     {
         public string? LoadFileAsText(string path)
         {
-            string resourcesDir = Path.Combine("..","..","..","..","..", "Kompas");
+            string resourcesDir = Path.Combine("..", "..", "..", "..", "..", "Kompas");
             string newPath = path.Replace("res://", resourcesDir + "/");
 
             return File.ReadAllText(newPath);
         }
 
-		public Texture2D? LoadSprite(string cardFileName) => null;
+        public Texture2D? LoadSprite(string cardFileName) => null;
     }
 
     [Fact]
@@ -39,13 +39,13 @@ public class CardRepoTest
         game.SetupGet(game => game.CardRepository)
             .Returns(repo);
 
-		var player = new Mock<IPlayer>();
-		player.SetupGet(p => p.Game)
-			.Returns(game.Object);
+        var player = new Mock<IPlayer>();
+        player.SetupGet(p => p.Game)
+            .Returns(game.Object);
 
-		var stack = new Mock<IServerStackController>();
-		game.SetupGet(g => g.StackController)
-			.Returns(stack.Object);
+        var stack = new Mock<IServerStackController>();
+        game.SetupGet(g => g.StackController)
+            .Returns(stack.Object);
 
         Assert.NotEmpty(CardRepository.CardNames);
 
@@ -54,8 +54,8 @@ public class CardRepoTest
             var card = repo.InstantiateServerCard(cardName, game.Object, player.Object, 69, false);
 
             Assert.NotNull(card);
-			
-			//if (i++ > limit) break;
+
+            //if (i++ > limit) break;
         }
     }
 }
