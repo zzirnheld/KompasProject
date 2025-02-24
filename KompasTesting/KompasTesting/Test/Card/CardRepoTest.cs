@@ -8,7 +8,7 @@ using Kompas.Server.Effects.Controllers;
 using Kompas.Server.Gamestate;
 using Moq;
 
-namespace KompasTesting;
+namespace Kompas.Test;
 
 public class CardRepoTest
 {
