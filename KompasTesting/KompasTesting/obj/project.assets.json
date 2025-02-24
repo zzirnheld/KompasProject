@@ -24,13 +24,13 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
-      "Godot.SourceGenerators/4.2.0": {
+      "Godot.SourceGenerators/4.3.0": {
         "type": "package",
         "build": {
           "build/_._": {}
         }
       },
-      "GodotSharp/4.2.0": {
+      "GodotSharp/4.3.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/GodotSharp.dll": {
@@ -43,10 +43,10 @@
           }
         }
       },
-      "GodotSharpEditor/4.2.0": {
+      "GodotSharpEditor/4.3.0": {
         "type": "package",
         "dependencies": {
-          "GodotSharp": "4.2.0"
+          "GodotSharp": "4.3.0"
         },
         "compile": {
           "lib/net6.0/GodotSharpEditor.dll": {
@@ -1808,11 +1808,11 @@
       },
       "Kompas/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Godot.SourceGenerators": "4.2.0",
-          "GodotSharp": "4.2.0",
-          "GodotSharpEditor": "4.2.0",
+          "Godot.SourceGenerators": "4.3.0",
+          "GodotSharp": "4.3.0",
+          "GodotSharpEditor": "4.3.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
@@ -1902,40 +1902,40 @@
         "coverlet.collector.nuspec"
       ]
     },
-    "Godot.SourceGenerators/4.2.0": {
-      "sha512": "MnpZZrUyN/7mKvgOX/OVUwx0D83bUU7Ie9VYpe2kqPj+fIe4udhRBGkx0qt42Ajzg3Pb2Ffq1lZlK8aV82niJA==",
+    "Godot.SourceGenerators/4.3.0": {
+      "sha512": "fLDNOAo/kpL1JtGXP6b2M48dobzb5YmKSRLXKDt+td8qegu0Ao3H25avoySVmrb52d7zpe8yvgMwba7QMhqnqQ==",
       "type": "package",
-      "path": "godot.sourcegenerators/4.2.0",
+      "path": "godot.sourcegenerators/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
         "build/Godot.SourceGenerators.props",
-        "godot.sourcegenerators.4.2.0.nupkg.sha512",
+        "godot.sourcegenerators.4.3.0.nupkg.sha512",
         "godot.sourcegenerators.nuspec"
       ]
     },
-    "GodotSharp/4.2.0": {
-      "sha512": "z9JPrppNMikLCCWh1QBs65D9Y0v8B3kbj69apNy1Tizd/Q0zR063RDppwXaTF4UGozeqT3o96PNu+9vi1N8nYw==",
+    "GodotSharp/4.3.0": {
+      "sha512": "mEwRmNIG2k/yPfkFencEkNVXpHCa+uETHkIQcq0MxcsfwJQZ4HueFU5Q9CYDIdd5YrRPqjwuyxbsuD6Je8lfdQ==",
       "type": "package",
-      "path": "godotsharp/4.2.0",
+      "path": "godotsharp/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharp.4.2.0.nupkg.sha512",
+        "godotsharp.4.3.0.nupkg.sha512",
         "godotsharp.nuspec",
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
     },
-    "GodotSharpEditor/4.2.0": {
-      "sha512": "THek5TbbXZQuMTT1I+XOGlY0uosXMXv2eAmGnYaSWQaJiSCa5tVGiSyngx+vVckrPlWpoCwsUmp5qSexs8xyGw==",
+    "GodotSharpEditor/4.3.0": {
+      "sha512": "r7A3lszHS9/gIWoOb7w+MNtEjrD/NRX+9ACHq01GD2+lctu6eHsmlSTA0Ah1bjJDKs9rDZeSq+42zwXvtBsPzQ==",
       "type": "package",
-      "path": "godotsharpeditor/4.2.0",
+      "path": "godotsharpeditor/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharpeditor.4.2.0.nupkg.sha512",
+        "godotsharpeditor.4.3.0.nupkg.sha512",
         "godotsharpeditor.nuspec",
         "lib/net6.0/GodotSharpEditor.dll",
         "lib/net6.0/GodotSharpEditor.xml"
@@ -5770,6 +5770,7 @@
         "net8.0"
       ],
       "sources": {
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5786,7 +5787,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -5828,12 +5835,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.13, 8.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.103/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

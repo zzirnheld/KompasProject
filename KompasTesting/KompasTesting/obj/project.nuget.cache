@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "94Xc9b2/LkmCQzOxqFdcCy0I+aKYaPXkomjRZCNwJ7L/v6brs77YrwVYSsCNlIvU2hviDXrgcj0U0KDz3FRO8w==",
+  "dgSpecHash": "CGkTAv6mZCQ=",
   "success": true,
   "projectFilePath": "/home/eimti/Documents/Kompas/KompasProject/KompasTesting/KompasTesting/KompasTesting.csproj",
   "expectedPackageFiles": [
     "/home/eimti/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/home/eimti/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
-    "/home/eimti/.nuget/packages/godot.sourcegenerators/4.2.0/godot.sourcegenerators.4.2.0.nupkg.sha512",
-    "/home/eimti/.nuget/packages/godotsharp/4.2.0/godotsharp.4.2.0.nupkg.sha512",
-    "/home/eimti/.nuget/packages/godotsharpeditor/4.2.0/godotsharpeditor.4.2.0.nupkg.sha512",
+    "/home/eimti/.nuget/packages/godot.sourcegenerators/4.3.0/godot.sourcegenerators.4.3.0.nupkg.sha512",
+    "/home/eimti/.nuget/packages/godotsharp/4.3.0/godotsharp.4.3.0.nupkg.sha512",
+    "/home/eimti/.nuget/packages/godotsharpeditor/4.3.0/godotsharpeditor.4.3.0.nupkg.sha512",
     "/home/eimti/.nuget/packages/microsoft.codecoverage/17.6.0/microsoft.codecoverage.17.6.0.nupkg.sha512",
     "/home/eimti/.nuget/packages/microsoft.net.test.sdk/17.6.0/microsoft.net.test.sdk.17.6.0.nupkg.sha512",
     "/home/eimti/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
@@ -98,7 +98,9 @@
     "/home/eimti/.nuget/packages/xunit.core/2.4.2/xunit.core.2.4.2.nupkg.sha512",
     "/home/eimti/.nuget/packages/xunit.extensibility.core/2.4.2/xunit.extensibility.core.2.4.2.nupkg.sha512",
     "/home/eimti/.nuget/packages/xunit.extensibility.execution/2.4.2/xunit.extensibility.execution.2.4.2.nupkg.sha512",
-    "/home/eimti/.nuget/packages/xunit.runner.visualstudio/2.4.5/xunit.runner.visualstudio.2.4.5.nupkg.sha512"
+    "/home/eimti/.nuget/packages/xunit.runner.visualstudio/2.4.5/xunit.runner.visualstudio.2.4.5.nupkg.sha512",
+    "/home/eimti/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/home/eimti/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }
