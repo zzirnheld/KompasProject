@@ -9,8 +9,12 @@ using Kompas.Cards.Models;
 using Kompas.Gamestate.Locations.Models;
 using Kompas.Cards.Controllers;
 
-namespace Kompas.Test.Integration.Effects;
+namespace Kompas.Test.Integration;
 
+/// <remarks>
+/// <code>null!</code> is used for many initializers in this and its nested classes
+// to handle what is otherwise a carefully null-safe hierarchy when used in the normal codebase.
+/// </remarks>
 public class NoOpServerGameController : IServerGameController
 {
 	public ServerGame ServerGame { get; set; } = null!;
@@ -29,18 +33,20 @@ public class NoOpServerGameController : IServerGameController
 
 	public static ServerGame CreateGame(ServerCardRepository cardRepository, Func<bool> debugMode, IServerNetworker[] playerNetworkers)
 	{
-		var controller = new NoOpServerGameController(cardRepository);
-		controller.PlayerControllers = [new NoOpPlayerController(), new NoOpPlayerController()];
-		controller.BoardController = new NoOpBoardController();
+		var controller = new NoOpServerGameController(cardRepository)
+		{
+			PlayerControllers = [new NoOpPlayerController(), new NoOpPlayerController()],
+			BoardController = new NoOpBoardController()
+		};
 
-		var ret = ServerGame.Create(controller, cardRepository, debugMode);
+		controller.ServerGame = ServerGame.Create(controller, cardRepository, debugMode);
 
 		var players = ServerPlayer.Create(controller,
 			(player, index) => playerNetworkers[index]);
 		controller.Networkers = playerNetworkers;
 
-		ret.SetPlayers(players);
-		return ret;
+		controller.ServerGame.SetPlayers(players);
+		return controller.ServerGame;
 	}
 
 	private class NoOpPlayerController : IPlayerController
